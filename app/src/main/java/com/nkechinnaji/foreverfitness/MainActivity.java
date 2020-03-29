@@ -1,10 +1,19 @@
 package com.nkechinnaji.foreverfitness;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.nkechinnaji.foreverfitness.ui.entries.EntriesFragment;
+import com.nkechinnaji.foreverfitness.ui.history.HistoryFragment;
+import com.nkechinnaji.foreverfitness.ui.home.HomeFragment;
+import com.nkechinnaji.foreverfitness.ui.pictures.PicturesFragment;
+import com.nkechinnaji.foreverfitness.ui.settings.SettingsFragment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,15 +26,66 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_daily_entries, R.id.navigation_pictures, R.id.navigation_history,R.id.navigation_settings)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        //This is the Actionbar
-        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
+
+        FragmentTransaction mFragmentTransaction = getSupportFragmentManager().beginTransaction();
+        HomeFragment homeFragment = new HomeFragment();
+        mFragmentTransaction.replace(R.id.nav_host_fragment, homeFragment);
+        mFragmentTransaction.commit();
+
+        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            switch (menuItem.getItemId()) {
+                case R.id.navigation_home:
+                    switchToHomeFragment();
+                    break;
+                case R.id.navigation_daily_entries:
+                    switchToDailyEntriesFragment();
+                    break;
+                case R.id.navigation_pictures:
+                    switchToPicturesFragment();
+                    break;
+                case R.id.navigation_history:
+                    switchToHistoryFragment();
+                    break;
+                case R.id.navigation_settings:
+                    switchToSettingsFragment();
+                    break;
+            }
+            return true;
+        }
+
+    };
+
+    public void switchToHomeFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.nav_host_fragment, new HomeFragment()).commit();
+    }
+
+    public void switchToDailyEntriesFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.nav_host_fragment, new EntriesFragment()).commit();
+    }
+
+    public void switchToPicturesFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.nav_host_fragment, new PicturesFragment()).commit();
+    }
+
+    public void switchToHistoryFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.nav_host_fragment, new HistoryFragment()).commit();
+    }
+
+    public void switchToSettingsFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.nav_host_fragment, new SettingsFragment()).commit();
     }
 
 }

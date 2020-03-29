@@ -5,4 +5,9 @@
     <string name="title_pictures">Pictures</string>
     <string name="title_history">History</string>
     <string name="title_settings">Settings</string>
+    <string name="weekly_weight_loss_average">Weekly weight loss average:</string>
+    <string name="weight_loss_to_date">Weight loss to date:</string>
+    <string name="current_weight">Current weight:</string>
+    <string name="statistics">Statistics</string>
+    <string name="weight_entry">Weight Entry</string>
 </resources>
