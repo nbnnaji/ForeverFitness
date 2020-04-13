@@ -6,14 +6,20 @@ import androidx.lifecycle.ViewModel;
 
 public class EntriesViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private MutableLiveData<String> mWeightText = new MutableLiveData<>();
+    private MutableLiveData<String> mDateText = new MutableLiveData<>();
 
-    public EntriesViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is daily entries fragment");
+    public void setWeight(String weight) {
+        mWeightText.setValue(weight);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public void setDate(String date) {
+        mDateText.setValue(date);
+    }
+    public LiveData<String> getWeightText() {
+        return mWeightText;
+    }
+    public LiveData<String> getDateText() {
+        return mDateText;
     }
 }

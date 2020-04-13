@@ -3,36 +3,39 @@ package com.nkechinnaji.foreverfitness;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.nkechinnaji.foreverfitness.ui.entries.EntriesFragment;
+import com.nkechinnaji.foreverfitness.ui.entries.EntriesViewModel;
 import com.nkechinnaji.foreverfitness.ui.history.HistoryFragment;
 import com.nkechinnaji.foreverfitness.ui.home.HomeFragment;
 import com.nkechinnaji.foreverfitness.ui.pictures.PicturesFragment;
 import com.nkechinnaji.foreverfitness.ui.settings.SettingsFragment;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
 public class MainActivity extends AppCompatActivity {
+
+    private EntriesViewModel mEntriesViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mEntriesViewModel = ViewModelProviders.of(this).get(EntriesViewModel.class);
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
-
-        FragmentTransaction mFragmentTransaction = getSupportFragmentManager().beginTransaction();
-        HomeFragment homeFragment = new HomeFragment();
-        mFragmentTransaction.replace(R.id.nav_host_fragment, homeFragment);
-        mFragmentTransaction.commit();
-
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        //I added this if statement to keep the selected fragment when rotating the device
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.nav_host_fragment, new HomeFragment())
+                    .commit();
+        }
+
     }
 
 
@@ -41,51 +44,29 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+            Fragment selectedFragment = null;
+
             switch (menuItem.getItemId()) {
                 case R.id.navigation_home:
-                    switchToHomeFragment();
+                    selectedFragment = new HomeFragment();
                     break;
-                case R.id.navigation_daily_entries:
-                    switchToDailyEntriesFragment();
-                    break;
+
                 case R.id.navigation_pictures:
-                    switchToPicturesFragment();
+                    selectedFragment = new PicturesFragment();
                     break;
                 case R.id.navigation_history:
-                    switchToHistoryFragment();
+                    selectedFragment = new HistoryFragment();
                     break;
                 case R.id.navigation_settings:
-                    switchToSettingsFragment();
+                    selectedFragment = new SettingsFragment();
                     break;
             }
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                    selectedFragment).commit();
             return true;
         }
 
     };
-
-    public void switchToHomeFragment() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.nav_host_fragment, new HomeFragment()).commit();
-    }
-
-    public void switchToDailyEntriesFragment() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.nav_host_fragment, new EntriesFragment()).commit();
-    }
-
-    public void switchToPicturesFragment() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.nav_host_fragment, new PicturesFragment()).commit();
-    }
-
-    public void switchToHistoryFragment() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.nav_host_fragment, new HistoryFragment()).commit();
-    }
-
-    public void switchToSettingsFragment() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.nav_host_fragment, new SettingsFragment()).commit();
-    }
 
 }

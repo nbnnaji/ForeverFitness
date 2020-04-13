@@ -11,11 +11,11 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/navigation_daily_entries"
-        android:name="com.nkechinnaji.foreverfitness.ui.entries.EntriesFragment"
-        android:label="@string/title_daily_entries"
-        tools:layout="@layout/fragment_daily_entries" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_daily_entries"-->
+<!--        android:name="com.nkechinnaji.foreverfitness.ui.entries.EntriesFragment"-->
+<!--        android:label="@string/title_daily_entries"-->
+<!--        tools:layout="@layout/activity_daily_entries" />-->
 
     <fragment
         android:id="@+id/navigation_pictures"

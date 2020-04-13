@@ -10,4 +10,6 @@
     <string name="current_weight">Current weight:</string>
     <string name="statistics">Statistics</string>
     <string name="weight_entry">Weight Entry</string>
+
+    <string name="fragment_selector">Fragment Selector</string>
 </resources>

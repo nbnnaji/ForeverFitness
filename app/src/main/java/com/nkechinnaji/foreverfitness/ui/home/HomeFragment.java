@@ -1,12 +1,10 @@
 package com.nkechinnaji.foreverfitness.ui.home;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,29 +18,26 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.nkechinnaji.foreverfitness.R;
 import com.nkechinnaji.foreverfitness.ui.entries.EntriesFragment;
+import com.nkechinnaji.foreverfitness.ui.entries.EntriesViewModel;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private EntriesViewModel mEntriesViewModel;
+    private TextView weightPosted;
+    private TextView datePosted;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             final ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final LinearLayoutCompat setupTile = root.findViewById(R.id.setup_tile);
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mEntriesViewModel = ViewModelProviders.of(requireActivity()).get(EntriesViewModel.class);
+
+    }
+
+    public View onCreateView(@NonNull LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
+        final View root = inflater.inflate(R.layout.fragment_home, container, false);
         final LinearLayoutCompat weightEntryFile = root.findViewById(R.id.weight_entry_tile);
-        final LinearLayoutCompat historyTile = root.findViewById(R.id.history_tile);
         final LinearLayoutCompat pictureEntryTile = root.findViewById(R.id.picture_entry_tile);
-
-        //Click event: Setup Tile
-        setupTile.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getContext(), "goToSetup", Toast.LENGTH_LONG).show();
-            }
-        });
-
 
         //Click event: Weight Entry Tile
         weightEntryFile.setOnClickListener(new OnClickListener() {
@@ -50,22 +45,11 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
                 EntriesFragment entriesFragment = new EntriesFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, entriesFragment, "ENTRIES_FRAGMENT")
-                        //.addToBackStack(null)
-                        .commit();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.nav_host_fragment, entriesFragment); // give your fragment container id in first parameter
+                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                transaction.commit();
 
-                Toast.makeText(getContext(), "goToWeightEntry", Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-        //Click event: History Tile
-        historyTile.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getContext(), "goToHistory", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -80,16 +64,29 @@ public class HomeFragment extends Fragment {
         });
 
 
-        //Click event: Setup Tile
-        setupTile.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        return root;
+    }
 
-                Toast.makeText(getContext(), "goToSetup", Toast.LENGTH_LONG).show();
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        weightPosted = view.findViewById(R.id.text_current_weight);
+        datePosted = view.findViewById(R.id.posted_date);
+
+
+        mEntriesViewModel.getWeightText().observe(requireActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                weightPosted.setText(s);
             }
         });
 
+        mEntriesViewModel.getDateText().observe(requireActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                datePosted.setText(s);
+            }
+        });
 
-        return root;
     }
 }
