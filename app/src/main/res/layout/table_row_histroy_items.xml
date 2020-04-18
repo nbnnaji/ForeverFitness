@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:text="01/01/2020"
+        android:textColor="@android:color/black"
+        style="@style/Fitness.TextAppearance.AppCompat.Body2.Medium"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="200Lb"
+        style="@style/Fitness.TextAppearance.AppCompat.Body2.Medium"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_weight_icon"
+        style="@style/Fitness.TextAppearance.AppCompat.Body2.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:src="@drawable/ic_weight_loss_24dp" />
+</TableRow>

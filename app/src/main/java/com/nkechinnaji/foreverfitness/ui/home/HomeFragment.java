@@ -1,5 +1,6 @@
 package com.nkechinnaji.foreverfitness.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,14 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.nkechinnaji.foreverfitness.MainActivity;
 import com.nkechinnaji.foreverfitness.R;
+import com.nkechinnaji.foreverfitness.storage.LocalStorage;
 import com.nkechinnaji.foreverfitness.ui.entries.EntriesFragment;
 import com.nkechinnaji.foreverfitness.ui.entries.EntriesViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -30,7 +36,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEntriesViewModel = ViewModelProviders.of(requireActivity()).get(EntriesViewModel.class);
+      //  mEntriesViewModel = ViewModelProviders.of(requireActivity()).get(EntriesViewModel.class);
 
     }
 
@@ -44,12 +50,18 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                EntriesFragment entriesFragment = new EntriesFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+               // EntriesFragment entriesFragment = new EntriesFragment();
+               /* FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.nav_host_fragment, entriesFragment); // give your fragment container id in first parameter
                 transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-                transaction.commit();
+                transaction.commit();*/
 
+               // FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+               // Fragment home = getActivity().getSupportFragmentManager().findFragmentByTag(MainActivity.ENTRIES_PRAGMENT);
+               // transaction.hide(HomeFragment.this).show(home); // give your fragment container id in first parameter
+                //  transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+               // transaction.commit();
+                startActivity(new Intent( getActivity(), EntriesFragment.class));
             }
         });
 
@@ -74,7 +86,7 @@ public class HomeFragment extends Fragment {
         datePosted = view.findViewById(R.id.posted_date);
 
 
-        mEntriesViewModel.getWeightText().observe(requireActivity(), new Observer<String>() {
+      /*  mEntriesViewModel.getWeightText().observe(requireActivity(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 weightPosted.setText(s);
@@ -86,7 +98,12 @@ public class HomeFragment extends Fragment {
             public void onChanged(String s) {
                 datePosted.setText(s);
             }
-        });
+        });*/
+      // get latest weight and date from local storage
+        List<String> weightList = LocalStorage.getInstance(getContext()).getWeightList();
+        if(weightList.size() > 0) {
+            weightPosted.setText(weightList.get(0));
+        }
 
     }
 }
