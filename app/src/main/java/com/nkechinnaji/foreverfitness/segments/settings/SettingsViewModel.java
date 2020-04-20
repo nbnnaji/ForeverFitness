@@ -1,19 +1,20 @@
-package com.nkechinnaji.foreverfitness.ui.home;
+package com.nkechinnaji.foreverfitness.segments.settings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+/**
+ * Created by Nkechi Nnaji on 3/28/20.
+ * Description:
+ */
+public class SettingsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public SettingsViewModel() {
         mText = new MutableLiveData<>();
-
-        mText.setValue("This is home fragment");
-
-
+        mText.setValue("This is settings fragment");
     }
 
     public LiveData<String> getText() {

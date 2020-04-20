@@ -2,12 +2,15 @@ package com.nkechinnaji.foreverfitness.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.JsonReader;
 
+import com.google.gson.Gson;
+import com.nkechinnaji.foreverfitness.segments.profile.model.ProfileModel;
+
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Nkechi Nnaji on 4/18/20.
@@ -40,6 +43,43 @@ public class LocalStorage {
         String weight = mSharedPreferences.getString("WEIGHT_LIST", null);
         return convertToArray(weight);
     }
+
+
+    public void storeDate(List<String> dateList){
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        String date = convertToString(dateList);
+        editor.putString("DATE_LIST", date);
+        editor.apply();
+    }
+
+    public List<String> getDateList() {
+        String date = mSharedPreferences.getString("DATE_LIST", null);
+        return convertToArray(date);
+    }
+
+
+    public static void storeProfileModel(Context context, String key, Object value){
+        SharedPreferences sharedPreferences =  context.getSharedPreferences(
+                context.getPackageName(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(value);
+        editor.putString("PROFILE_MODEL", json);
+        editor.apply();
+    }
+
+    public static Object  getProfileModel(Context context, String key) {
+        SharedPreferences sharedPreferences =  context.getSharedPreferences(
+                context.getPackageName(), Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString(key, "");
+        ProfileModel objData = new Gson().fromJson(json, ProfileModel.class);
+        return objData;
+    }
+
+
+
+
 
     private String convertToString(List<String> list) {
 

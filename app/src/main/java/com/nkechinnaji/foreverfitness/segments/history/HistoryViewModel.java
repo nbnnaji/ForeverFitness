@@ -1,4 +1,4 @@
-package com.nkechinnaji.foreverfitness.ui.history;
+package com.nkechinnaji.foreverfitness.segments.history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:orientation="vertical"
+    tools:context=".segments.home.HomeFragment">
 
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_weight_entry"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Title.Regular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Title.Regular">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/daily_weight_entry"
+            android:layout_marginStart="16dp"
+            android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Title.Regular" />
     </androidx.appcompat.widget.Toolbar>
 
 
@@ -24,42 +29,82 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constrainedHeight="true"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toTopOf="@+id/add_weight_tile"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_gravity="center">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_date"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:hint="MM/DD/YYYY"
-            android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_weight"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date:"
+                android:labelFor="@id/text_date"/>
+            <TextView
+                android:id="@+id/text_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minEms="10"
+                android:text="mm/dd/yyyy"
+                android:textStyle="bold"
+                android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*required:"
+                android:textColor="@android:color/holo_red_dark"/>
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:hint="Weight"
-            android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.119" />
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight:"
+                android:labelFor="@id/text_weight"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="7"
+                android:gravity="center"
+                android:maxLength="3"
+                android:textStyle="bold"
+                android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lbs"
+                android:gravity="center"
+                android:minEms="3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/required"
+                android:textColor="@android:color/holo_red_dark"/>
+
+        </LinearLayout>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <LinearLayout
@@ -81,7 +126,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Add your Current Weight"
+            android:text="@string/add_your_current_weight"
             android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Body2.Medium" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -89,12 +134,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:src="@drawable/ic_add"
             android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

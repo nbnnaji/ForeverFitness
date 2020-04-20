@@ -9,7 +9,21 @@
     <string name="weight_loss_to_date">Weight loss to date:</string>
     <string name="current_weight">Current weight:</string>
     <string name="statistics">Statistics</string>
-    <string name="weight_entry">Weight Entry</string>
-
     <string name="fragment_selector">Fragment Selector</string>
+    <string name="weight_entry">Weight Entry</string>
+    <string name="daily_weight_entry">Daily Weight Entry</string>
+    <string name="required">*required:</string>
+    <string name="add_your_current_weight">Add your Current Weight</string>
+    <string name="created_by_nkechi_nnaji">Created by Nkechi Nnaji</string>
+    <string name="forever_fitness">Forever Fitness</string>
+    <string name="welcome_image">welcome image</string>
+    <string name="everything_you_need_to_keep_a_healthy_weight">Everything you need to keep a healthy weight</string>
+    <string name="view_progress">View your progress and analytics</string>
+    <string name="reach_goal">Reach your goal weight and stay healthy</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="create_a_profile">Create a profile</string>
+    <string name="enter_name_nickname">Enter name / nickname</string>
+    <string name="your_profile">Your Profile</string>
+    <string name="enter_sex">Enter sex</string>
 </resources>

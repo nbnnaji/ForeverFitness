@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.nkechinnaji.foreverfitness.ui.home.HomeFragment"
+        android:name="com.nkechinnaji.foreverfitness.segments.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
@@ -19,19 +19,19 @@
 
     <fragment
         android:id="@+id/navigation_pictures"
-        android:name="com.nkechinnaji.foreverfitness.ui.pictures.PicturesFragment"
+        android:name="com.nkechinnaji.foreverfitness.segments.pictures.PicturesFragment"
         android:label="@string/title_pictures"
         tools:layout="@layout/fragment_pictures" />
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.nkechinnaji.foreverfitness.ui.history.HistoryFragment"
+        android:name="com.nkechinnaji.foreverfitness.segments.history.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.nkechinnaji.foreverfitness.ui.settings.SettingsFragment"
+        android:name="com.nkechinnaji.foreverfitness.segments.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>

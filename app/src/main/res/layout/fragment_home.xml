@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".segments.home.HomeFragment">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/statistics"
-            android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Title.Regular" />
+            android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Headline.Regular" />
 
         <ImageView
             android:id="@+id/toolbar_profile_iv"
@@ -65,10 +65,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="4"
         android:hint="weight"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="lbs"
+        android:paddingStart="8dp"
+        android:gravity="center" />
 </androidx.appcompat.widget.LinearLayoutCompat>
 
 
@@ -91,7 +97,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/weight_loss_to_date"
+        android:text="Last entry date:"
         android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -99,8 +105,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="4"
+
+            android:minEms="10"
             android:hint="date"
             />
     </androidx.appcompat.widget.LinearLayoutCompat>

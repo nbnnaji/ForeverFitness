@@ -1,4 +1,4 @@
-package com.nkechinnaji.foreverfitness.ui.pictures;
+package com.nkechinnaji.foreverfitness.segments.pictures;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

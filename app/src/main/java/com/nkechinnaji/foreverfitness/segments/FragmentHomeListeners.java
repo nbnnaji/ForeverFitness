@@ -1,4 +1,4 @@
-package com.nkechinnaji.foreverfitness.ui;
+package com.nkechinnaji.foreverfitness.segments;
 
 /**
  * Created by Nkechi Nnaji on 4/13/20.

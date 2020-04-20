@@ -6,15 +6,12 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.nkechinnaji.foreverfitness.ui.entries.EntriesFragment;
-import com.nkechinnaji.foreverfitness.ui.entries.EntriesViewModel;
-import com.nkechinnaji.foreverfitness.ui.history.HistoryFragment;
-import com.nkechinnaji.foreverfitness.ui.home.HomeFragment;
-import com.nkechinnaji.foreverfitness.ui.pictures.PicturesFragment;
-import com.nkechinnaji.foreverfitness.ui.settings.SettingsFragment;
+import com.nkechinnaji.foreverfitness.segments.entries.EntriesViewModel;
+import com.nkechinnaji.foreverfitness.segments.history.HistoryFragment;
+import com.nkechinnaji.foreverfitness.segments.home.HomeFragment;
+import com.nkechinnaji.foreverfitness.segments.pictures.PicturesFragment;
+import com.nkechinnaji.foreverfitness.segments.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,15 +27,12 @@ public class MainActivity extends AppCompatActivity {
     private PicturesFragment pictureFragment = new PicturesFragment();
     private HistoryFragment historyFragment = new HistoryFragment();
     private SettingsFragment settingsFragment = new SettingsFragment();
-   // private EntriesFragment entriesFragment = new EntriesFragment();
-   /// private Fragment active = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  mEntriesViewModel = ViewModelProviders.of(this).get(EntriesViewModel.class);
-
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -47,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, homeFragment, HOME_PRAGMENT)
                     .commit();
-          //  active = homeFragment;
 
         }
 
