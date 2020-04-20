@@ -11,7 +11,7 @@ import com.nkechinnaji.foreverfitness.onboarding.OnBoardingActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 10000;
+    private static int SPLASH_TIME_OUT = 4000;
 
 
     @Override
