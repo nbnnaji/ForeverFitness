@@ -78,9 +78,6 @@ public class LocalStorage {
     }
 
 
-
-
-
     private String convertToString(List<String> list) {
 
         StringBuilder sb = new StringBuilder();
