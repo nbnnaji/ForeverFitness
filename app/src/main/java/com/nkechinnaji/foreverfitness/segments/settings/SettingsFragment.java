@@ -1,10 +1,14 @@
 package com.nkechinnaji.foreverfitness.segments.settings;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +19,10 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.nkechinnaji.foreverfitness.R;
 import com.nkechinnaji.foreverfitness.segments.profile.model.ProfileModel;
+import com.nkechinnaji.foreverfitness.storage.DatabaseHelper;
 import com.nkechinnaji.foreverfitness.storage.LocalStorage;
+
+import java.util.ArrayList;
 
 /**
  * Created by Nkechi Nnaji on 3/28/20.
@@ -30,6 +37,9 @@ public class SettingsFragment extends Fragment {
     private EditText targetWeight;
     private EditText height;
     private EditText email;
+
+    DatabaseHelper mDatabaseHelper;
+    private ListView mListView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -50,13 +60,32 @@ public class SettingsFragment extends Fragment {
         height = view.findViewById(R.id.height);
         email = view.findViewById(R.id.email);
 
-        ProfileModel data = (ProfileModel) LocalStorage.getProfileModel(getContext(), "PROFILE_MODEL");
-        username.setText(data.getUsername());
-        dateOfBirth.setText(data.getDateOfBirth());
-        sex.setText(data.getGender());
-        currentWeight.setText(data.getCurrentWeight());
-        targetWeight.setText(data.getTargetGoalWeight());
-        height.setText(data.getHeight());
-        email.setText(data.getEmail());
+       // Getting data from SharedPreferences
+       // ProfileModel data = (ProfileModel) LocalStorage.getProfileModel(getContext(), "PROFILE_MODEL");
+        
+        populateSettingsScreen();
+
+    }
+
+    private void populateSettingsScreen() {
+        Cursor data = mDatabaseHelper.getData();
+        ArrayList<String> listData = new ArrayList<>();
+        while(data.moveToNext()){
+            listData.add(data.getString(1));
+        }
+
+
     }
 }
+
+
+
+//Cursor data = mDatabaseHelper.getDatabaseName();
+//
+//        username.setText(data.getUsername());
+//                dateOfBirth.setText(data.getDateOfBirth());
+//                sex.setText(data.getGender());
+//                currentWeight.setText(data.getCurrentWeight());
+//                targetWeight.setText(data.getTargetGoalWeight());
+//                height.setText(data.getHeight());
+//                email.setText(data.getEmail());

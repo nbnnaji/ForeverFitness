@@ -6,6 +6,8 @@ package com.nkechinnaji.foreverfitness.segments.profile.model;
  */
 public class ProfileModel {
 
+
+
     String username;
     String dateOfBirth;
     String gender;
@@ -18,7 +20,8 @@ public class ProfileModel {
 
     public ProfileModel(){}
 
-    public ProfileModel(String username, String dateOfBirth, String gender, String currentWeight, String targetGoalWeight, String height, String email) {
+    public ProfileModel( String username, String dateOfBirth, String gender, String currentWeight, String targetGoalWeight, String height, String email) {
+
         this.username = username;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;

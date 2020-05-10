@@ -95,7 +95,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="48dp"
             android:letterSpacing="0.1"
-
+            android:onClick="addNewProfileContent"
             android:text="CREATE" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>
