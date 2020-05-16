@@ -2,19 +2,17 @@ package com.nkechinnaji.foreverfitness.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.JsonReader;
 
 import com.google.gson.Gson;
 import com.nkechinnaji.foreverfitness.segments.profile.model.ProfileModel;
 
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by Nkechi Nnaji on 4/18/20.
- * Description:
+ * Description: Storage with Shared Preferences
  */
 public class LocalStorage {
 

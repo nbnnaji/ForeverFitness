@@ -13,7 +13,7 @@ import com.nkechinnaji.foreverfitness.segments.profile.model.ProfileModel;
 
 /**
  * Created by Nkechi Nnaji on 5/9/20.
- * Description:
+ * Description: Storage using Database SQLite
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -56,16 +56,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.insert(Constants.PROFILE_TABLE, null, contentValues);
         db.close();
-
-        //Check if data was entered properly
-  //      long entryResult = db.insert(Constants.PROFILE_TABLE, null, contentValues);
-//       if(entryResult == -1){
-//           return false;
-//       }
-//       else{
-//           return true;
-//       }
-
 
     }
 
