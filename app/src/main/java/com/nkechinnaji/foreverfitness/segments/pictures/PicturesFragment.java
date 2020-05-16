@@ -37,7 +37,6 @@ import static android.app.Activity.RESULT_OK;
 
 public class PicturesFragment extends Fragment {
 
-    ImageView cameraImage;
     Button cameraBtn;
     ImageView image;
 
@@ -45,7 +44,6 @@ public class PicturesFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_pictures, container, false);
-       // cameraImage = root.findViewById(R.id.take_a_picture);
         cameraBtn = root.findViewById(R.id.open_camera_btn);
         image = root.findViewById(R.id.captured_image);
 
