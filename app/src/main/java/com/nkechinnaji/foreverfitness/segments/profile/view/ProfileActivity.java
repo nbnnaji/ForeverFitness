@@ -113,7 +113,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void addNewProfileContent(View view) {
-        DatabaseHelper dbHelper = new DatabaseHelper(this, null, null, 1);
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
 
         ProfileModel profile = new ProfileModel(name.getText().toString(), dateOfBirthEntry.getText().toString(), genderEntry.getText().toString(), currentWeightEntry.getText().toString(),
                 targetWeightEntry.getText().toString(), heightEntry.getText().toString(), emailEntry.getText().toString());

@@ -17,8 +17,7 @@ import com.nkechinnaji.foreverfitness.segments.profile.model.ProfileModel;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public DatabaseHelper(Context context, String name,
-                          SQLiteDatabase.CursorFactory factory, int version) {
+    public DatabaseHelper(Context context) {
         super(context, Constants.PROFILE_TABLE, null, 1);
     }
 

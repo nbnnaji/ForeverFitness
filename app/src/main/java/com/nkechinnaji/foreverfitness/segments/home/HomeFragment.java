@@ -13,9 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.fragment.app.Fragment;
 import com.nkechinnaji.foreverfitness.R;
+import com.nkechinnaji.foreverfitness.segments.pictures.TakePictureActivity;
 import com.nkechinnaji.foreverfitness.storage.LocalStorage;
 import com.nkechinnaji.foreverfitness.segments.entries.EntriesFragment;
-import com.nkechinnaji.foreverfitness.segments.entries.EntriesViewModel;
 
 import java.util.List;
 
@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
         pictureEntryTile.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "goToPictureEntry", Toast.LENGTH_LONG).show();
+                startActivity(new Intent( getActivity(), TakePictureActivity.class));
             }
         });
 

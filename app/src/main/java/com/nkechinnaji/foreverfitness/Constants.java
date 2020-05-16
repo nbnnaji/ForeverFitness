@@ -19,4 +19,11 @@ public class Constants {
     public static final String COL7 = "EMAIL_ADDRESS";
 
 
+   public class RequestCodes {
+
+       public static final int  CAMERA_REQ_CODE = 1;
+
+    }
+
+
 }

@@ -68,6 +68,7 @@ public class SettingsFragment extends Fragment {
     }
 
     private void populateSettingsScreen() {
+        mDatabaseHelper = new DatabaseHelper(getContext());
         Cursor data = mDatabaseHelper.getData();
         ArrayList<String> listData = new ArrayList<>();
         while(data.moveToNext()){
