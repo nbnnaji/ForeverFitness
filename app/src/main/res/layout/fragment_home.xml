@@ -248,4 +248,28 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+
+        <ImageView
+            android:id="@+id/todays_pic"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/weight_entry_tile"
+            app:layout_constraintEnd_toEndOf="@id/picture_entry_tile"
+            app:layout_constraintStart_toStartOf="@id/weight_entry_tile"
+            android:src="@drawable/ic_profile" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minEms="5"
+        android:text="Last Picture Taken"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toBottomOf="@id/todays_pic"
+        app:layout_constraintEnd_toEndOf="@id/todays_pic"
+        app:layout_constraintStart_toStartOf="@id/todays_pic"
+        android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Body1.Regular" />
 </androidx.constraintlayout.widget.ConstraintLayout>

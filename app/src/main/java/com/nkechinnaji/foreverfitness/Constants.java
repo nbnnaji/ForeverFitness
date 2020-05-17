@@ -22,6 +22,7 @@ public class Constants {
    public class RequestCodes {
 
        public static final int  CAMERA_REQ_CODE = 1;
+       public static final int  TAKE_PIC_REQ_CODE = 2;
 
     }
 

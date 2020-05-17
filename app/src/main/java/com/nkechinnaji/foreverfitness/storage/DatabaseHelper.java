@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //Create Profile Table
         String createProfileTable = "CREATE TABLE " + "PROFILE" +
-                " ( " + "ID" + "INTEGER PRIMARY KEY AUTOINCREMENT , " +
+                " ( " + "ID" + "INTEGER PRIMARY KEY , " +
                 "NAME text, DOB text, SEX text, CURRENT_WEIGHT text, TARGET_WEIGHT text, HEIGHT text, EMAIL_ADDRESS text);";
         db.execSQL(createProfileTable);
     }
