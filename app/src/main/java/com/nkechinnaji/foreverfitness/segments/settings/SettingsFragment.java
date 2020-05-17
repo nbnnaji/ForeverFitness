@@ -69,24 +69,13 @@ public class SettingsFragment extends Fragment {
 
     private void populateSettingsScreen() {
         mDatabaseHelper = new DatabaseHelper(getContext());
-        Cursor data = mDatabaseHelper.getData();
-        ArrayList<String> listData = new ArrayList<>();
-        while(data.moveToNext()){
-            listData.add(data.getString(1));
-        }
-
-
+        ProfileModel data = mDatabaseHelper.getData();
+        username.setText(data.getUsername());
+        dateOfBirth.setText(data.getDateOfBirth());
+        sex.setText(data.getGender());
+        currentWeight.setText(data.getCurrentWeight());
+        targetWeight.setText(data.getTargetGoalWeight());
+        height.setText(data.getHeight());
+        email.setText(data.getEmail());
     }
 }
-
-
-
-//Cursor data = mDatabaseHelper.getDatabaseName();
-//
-//        username.setText(data.getUsername());
-//                dateOfBirth.setText(data.getDateOfBirth());
-//                sex.setText(data.getGender());
-//                currentWeight.setText(data.getCurrentWeight());
-//                targetWeight.setText(data.getTargetGoalWeight());
-//                height.setText(data.getHeight());
-//                email.setText(data.getEmail());
