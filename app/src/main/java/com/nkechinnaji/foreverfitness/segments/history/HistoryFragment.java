@@ -4,14 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.nkechinnaji.foreverfitness.R;
-import com.nkechinnaji.foreverfitness.storage.LocalStorage;
+import com.nkechinnaji.foreverfitness.segments.model.WeightEntryModel;
+import com.nkechinnaji.foreverfitness.segments.storage.DatabaseHelper;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,28 +26,35 @@ import java.util.List;
  */
 public class HistoryFragment extends Fragment {
 
-    private List<String> weightList = new ArrayList<>();
-    private List<String> dateList = new ArrayList<>();
-
     View tableRow;
     public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_history, container, false);
         final TableLayout tableLayout = root.findViewById(R.id.history_table);
 
-       // get weight list from local storage
-        weightList = LocalStorage.getInstance(getContext()).getWeightList();
-        dateList = LocalStorage.getInstance(getContext()).getDateList();
+        //populate home screen with database content
+        DatabaseHelper mDatabaseHelper = new DatabaseHelper(getContext());
+        List<WeightEntryModel> data = mDatabaseHelper.getWeightEntry();
 
-        for(int i = 0; i < dateList.size() ; i ++) {
+        for(int i = 0; i < data.size() ; i ++) {
 
             tableRow = inflater.inflate(R.layout.table_row_histroy_items, tableLayout, false);
 
             final TextView date = tableRow.findViewById(R.id.tv_date);
-            date.setText(dateList.get(i));
+            date.setText(data.get(i).getDate());
 
             final TextView weight = tableRow.findViewById(R.id.tv_weight);
-            weight.setText(weightList.get(i));
+            weight.setText(data.get(i).getWeight());
+
+            final ImageView weightPic = tableRow.findViewById(R.id.iv_weight);
+
+            String imageUrl = data.get(i).getImageUrl();
+            if(imageUrl.isEmpty()) {
+                weightPic.setVisibility(View.INVISIBLE);
+            } else {
+                File file = new File(imageUrl);
+                Picasso.get().load(file).into(weightPic);
+            }
 
             tableLayout.addView(tableRow);
         }

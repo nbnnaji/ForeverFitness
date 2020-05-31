@@ -27,4 +27,14 @@
     <string name="your_profile">Your Profile</string>
     <string name="enter_sex">Enter sex</string>
     <string name="take_a_picture">Take A Picture</string>
+    <string name="take_picture">Take a Picture</string>
+    <string name="last_entry_date">Last entry date:</string>
+    <string name="date_format">yyyyMMdd_HHmmss</string>
+    <string name="jpeg_format">JPEG_</string>
+    <string name="under_score">_</string>
+    <string name="jpeg_extension">.jpg</string>
+    <string name="provider">.provider</string>
+    <string name="date_divider">/</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="sex">Sex :</string>
 </resources>

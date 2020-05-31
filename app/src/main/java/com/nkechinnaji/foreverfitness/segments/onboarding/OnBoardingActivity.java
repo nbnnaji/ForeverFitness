@@ -1,4 +1,4 @@
-package com.nkechinnaji.foreverfitness.onboarding;
+package com.nkechinnaji.foreverfitness.segments.onboarding;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.google.android.material.tabs.TabLayout;
 import com.nkechinnaji.foreverfitness.MainActivity;
 import com.nkechinnaji.foreverfitness.R;
-import com.nkechinnaji.foreverfitness.segments.profile.view.ProfileActivity;
+import com.nkechinnaji.foreverfitness.segments.profile.ProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,43 +38,28 @@ public class OnBoardingActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            // make the activity on full screen
-
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
-            // when this activity is about to be launch we need to check if its openened before or not
-
-            if (restorePrefData()) {
-
+            if (getSharedPreferencesData()) {
                 Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class );
                 startActivity(mainActivity);
                 finish();
-
-
             }
 
             setContentView(R.layout.activity_intro);
 
-            // hide the action bar
-
-//            getSupportActionBar().hide();
-
-            // ini views
             btnNext = findViewById(R.id.btn_next);
             btnGetStarted = findViewById(R.id.btn_get_started);
             tabIndicator = findViewById(R.id.tab_indicator);
             btnAnim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_animation);
             tvSkip = findViewById(R.id.tv_skip);
 
-            // fill list screen
-
-            final List<ScreenItem> mList = new ArrayList<>();
-            mList.add(new ScreenItem(getString(R.string.everything_you_need_to_keep_a_healthy_weight),"",R.drawable.ic_fitness_center_weights));
-            mList.add(new ScreenItem(getString(R.string.view_progress),"",R.drawable.ic_graph));
-            mList.add(new ScreenItem(getString(R.string.reach_goal),"",R.drawable.ic_target));
+            final List<Items> mList = new ArrayList<>();
+            mList.add(new Items(getString(R.string.everything_you_need_to_keep_a_healthy_weight),"",R.drawable.ic_fitness_center_weights));
+            mList.add(new Items(getString(R.string.view_progress),"",R.drawable.ic_graph));
+            mList.add(new Items(getString(R.string.reach_goal),"",R.drawable.ic_target));
 
             // setup viewpager
             screenPager =findViewById(R.id.screen_viewpager);
@@ -82,39 +67,25 @@ public class OnBoardingActivity extends AppCompatActivity {
             screenPager.setAdapter(sliderPagerAdapter);
 
             // setup tablayout with viewpager
-
             tabIndicator.setupWithViewPager(screenPager);
 
             // next button click Listner
-
             btnNext.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     position = screenPager.getCurrentItem();
                     if (position < mList.size()) {
-
                         position++;
                         screenPager.setCurrentItem(position);
-
-
                     }
 
                     if (position == mList.size()-1) { // when we rech to the last screen
 
-                        // TODO : show the GETSTARTED Button and hide the indicator and the next button
-
-                        loaddLastScreen();
-
-
+                        loadFinalScreen();
                     }
-
-
-
                 }
             });
-
-            // tablayout add change listener
 
 
             tabIndicator.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
@@ -123,47 +94,32 @@ public class OnBoardingActivity extends AppCompatActivity {
 
                     if (tab.getPosition() == mList.size()-1) {
 
-                        loaddLastScreen();
-
+                        loadFinalScreen();
                     }
-
-
                 }
 
                 @Override
                 public void onTabUnselected(TabLayout.Tab tab) {
-
                 }
-
                 @Override
                 public void onTabReselected(TabLayout.Tab tab) {
-
                 }
             });
-
-
-
-            // Get Started button click listener
 
             btnGetStarted.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-
                     //open main activity
-
                     Intent mainActivity = new Intent(getApplicationContext(), ProfileActivity.class);
                     startActivity(mainActivity);
-                    savePrefsData();
+                    saveToSharedPreferences();
                     finish();
-
-
 
                 }
             });
 
             // skip button click listener
-
             tvSkip.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -171,43 +127,31 @@ public class OnBoardingActivity extends AppCompatActivity {
                 }
             });
 
-
-
         }
 
-        private boolean restorePrefData() {
-
-
-            SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
-            Boolean isIntroActivityOpnendBefore = pref.getBoolean("isIntroOpnend",false);
-            return  isIntroActivityOpnendBefore;
-
-
-
+        private boolean getSharedPreferencesData() {
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("FITNESS_APP",MODE_PRIVATE);
+            Boolean checkActivityOpen = pref.getBoolean("introScreenOpened",false);
+            return  checkActivityOpen;
         }
 
-        private void savePrefsData() {
-
-            SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
+        private void saveToSharedPreferences() {
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("FITNESS_APP",MODE_PRIVATE);
             SharedPreferences.Editor editor = pref.edit();
-            editor.putBoolean("isIntroOpnend",true);
+            editor.putBoolean("introScreenOpened",true);
             editor.commit();
 
 
         }
 
-        // show the GETSTARTED Button and hide the indicator and the next button
-        private void loaddLastScreen() {
+        private void loadFinalScreen() {
 
             btnNext.setVisibility(View.INVISIBLE);
             btnGetStarted.setVisibility(View.VISIBLE);
             tvSkip.setVisibility(View.INVISIBLE);
             tabIndicator.setVisibility(View.INVISIBLE);
-            // TODO : ADD an animation the getstarted button
             // setup animation
             btnGetStarted.setAnimation(btnAnim);
-
-
 
         }
     }

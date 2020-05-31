@@ -16,10 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".segments.pictures.TakePictureActivity"></activity>
-        <activity android:name=".segments.profile.view.ProfileActivity" />
-        <activity android:name=".onboarding.OnBoardingActivity" />
-        <activity android:name=".splash.SplashActivity">
+        <activity android:name=".segments.settings.EditProfileActivity"></activity>
+        <activity android:name=".segments.pictures.TakePictureActivity" />
+        <activity android:name=".segments.profile.ProfileActivity" />
+        <activity android:name=".segments.onboarding.OnBoardingActivity" />
+        <activity android:name=".segments.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,11 +29,21 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
-            android:name=".segments.entries.EntriesFragment"
+            android:name=".segments.entries.EntriesActivity"
             android:label=""
             android:parentActivityName=".MainActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

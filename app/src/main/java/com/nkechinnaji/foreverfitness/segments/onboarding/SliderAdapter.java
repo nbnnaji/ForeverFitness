@@ -1,4 +1,4 @@
-package com.nkechinnaji.foreverfitness.onboarding;
+package com.nkechinnaji.foreverfitness.segments.onboarding;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -20,9 +20,9 @@ import java.util.List;
  */
 public class SliderAdapter extends PagerAdapter {
     Context mContext ;
-    List<ScreenItem> mListScreen;
+    List<Items> mListScreen;
 
-    public SliderAdapter(Context mContext, List<ScreenItem> mListScreen) {
+    public SliderAdapter(Context mContext, List<Items> mListScreen) {
         this.mContext = mContext;
         this.mListScreen = mListScreen;
     }
@@ -45,9 +45,6 @@ public class SliderAdapter extends PagerAdapter {
         container.addView(layoutScreen);
 
         return layoutScreen;
-
-
-
 
 
     }

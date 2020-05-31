@@ -1,18 +1,16 @@
-package com.nkechinnaji.foreverfitness.storage;
+package com.nkechinnaji.foreverfitness.segments.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import com.google.gson.Gson;
-import com.nkechinnaji.foreverfitness.segments.profile.model.ProfileModel;
-
+import com.nkechinnaji.foreverfitness.segments.model.ProfileModel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by Nkechi Nnaji on 4/18/20.
- * Description: Storage with Shared Preferences
+ * Description: Storage using Shared Preferences which has now been replaced with Databasehelper for storing user data persistently.
  */
 public class LocalStorage {
 

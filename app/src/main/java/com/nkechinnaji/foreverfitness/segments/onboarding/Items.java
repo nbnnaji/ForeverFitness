@@ -1,15 +1,15 @@
-package com.nkechinnaji.foreverfitness.onboarding;
+package com.nkechinnaji.foreverfitness.segments.onboarding;
 
 /**
  * Created by Nkechi Nnaji on 4/19/20.
  * Description:
  */
-public class ScreenItem {
+public class Items {
 
     String Title,Description;
     int ScreenImg;
 
-    public ScreenItem(String title, String description, int screenImg) {
+    public Items(String title, String description, int screenImg) {
         Title = title;
         Description = description;
         ScreenImg = screenImg;

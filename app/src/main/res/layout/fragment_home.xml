@@ -79,6 +79,7 @@
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/date_tile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -97,7 +98,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Last entry date:"
+        android:text="@string/last_entry_date"
         android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -105,41 +106,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-
             android:minEms="10"
             android:hint="date"
             />
     </androidx.appcompat.widget.LinearLayoutCompat>
-    <TextView
-        android:id="@+id/text_weekly_weight_loss"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/weekly_weight_loss_average"
-        android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177" />
-
-    <TextView
-        android:id="@+id/text_BMI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="BMI:"
-        android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular"
-     app:layout_constraintTop_toBottomOf="@id/text_weekly_weight_loss"
-        app:layout_constraintStart_toStartOf="@id/text_weekly_weight_loss"
-        app:layout_constraintVertical_bias="0.177" />
 
     <View
         android:id="@+id/blue_bar_view"
@@ -149,7 +119,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
         android:background="@color/primary_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -212,64 +181,6 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/picture_entry_tile"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/primary"
-        android:elevation="4dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="4:3"
-        app:layout_constraintEnd_toEndOf="@+id/browse_content_label"
-        app:layout_constraintTop_toBottomOf="@+id/browse_content_label"
-        app:layout_constraintVertical_bias="0.0">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/picture_iv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_picture_entries_iv" />
 
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:minEms="5"
-            android:text="Picture Entry"
-            android:textAllCaps="true"
-            android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Body1.Regular" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
-        <ImageView
-            android:id="@+id/todays_pic"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="30dp"
-            app:layout_constraintTop_toBottomOf="@id/weight_entry_tile"
-            app:layout_constraintEnd_toEndOf="@id/picture_entry_tile"
-            app:layout_constraintStart_toStartOf="@id/weight_entry_tile"
-            android:src="@drawable/ic_profile" />
-
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:minEms="5"
-        android:text="Last Picture Taken"
-        android:textAllCaps="true"
-        app:layout_constraintTop_toBottomOf="@id/todays_pic"
-        app:layout_constraintEnd_toEndOf="@id/todays_pic"
-        app:layout_constraintStart_toStartOf="@id/todays_pic"
-        android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Body1.Regular" />
 </androidx.constraintlayout.widget.ConstraintLayout>

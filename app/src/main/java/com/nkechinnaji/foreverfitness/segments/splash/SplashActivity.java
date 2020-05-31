@@ -1,4 +1,4 @@
-package com.nkechinnaji.foreverfitness.splash;
+package com.nkechinnaji.foreverfitness.segments.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.nkechinnaji.foreverfitness.R;
-import com.nkechinnaji.foreverfitness.onboarding.OnBoardingActivity;
+import com.nkechinnaji.foreverfitness.segments.onboarding.OnBoardingActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

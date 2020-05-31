@@ -1,4 +1,4 @@
-package com.nkechinnaji.foreverfitness;
+package com.nkechinnaji.foreverfitness.segments.UiUtils;
 
 /**
  * Created by Nkechi Nnaji on 5/9/20.
@@ -18,12 +18,18 @@ public class Constants {
     public static final String HEIGHT = "HEIGHT";
     public static final String EMAIL_ADDRESS = "EMAIL_ADDRESS";
 
+    public static final String WEIGHT = "WEIGHT";
+    public static final String DATE = "DATE";
+    public static final String IMAGE = "PICTURE";
+    public static final String ENTRY_TABLE = "Entry";
 
-   public class RequestCodes {
+
+    public class RequestCodes {
 
        public static final int  CAMERA_REQ_CODE = 1;
-       public static final int  TAKE_PIC_REQ_CODE = 2;
-
+       public static final int  PIC_PERMISSION_REQ_CODE = 2;
+       public static final int  TAKE_PIC_REQ_CODE = 3;
+       public static final int  WEIGHT_ENTRY_REQ_CODE = 4;
     }
 
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".segments.profile.view.ProfileActivity">
+    tools:context=".segments.profile.ProfileActivity">
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -37,15 +37,14 @@
             android:layout_marginStart="16dp"
             android:layout_weight="0.1"
             android:text="Name:"/>
-        <androidx.appcompat.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_weight="0.5"
-            android:hint="@string/enter_name_nickname" />
+            android:layout_weight="0.5" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,15 +61,14 @@
             android:layout_marginStart="16dp"
             android:layout_weight="0.1"
             android:text="DOB :"/>
-        <androidx.appcompat.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/date_of_birth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_weight="0.5"
-            android:hint="Enter date of birth" />
+            android:layout_weight="0.5" />
         </LinearLayout>
 
         <LinearLayout
@@ -87,7 +85,7 @@
             android:layout_marginStart="16dp"
             android:layout_weight="0.1"
             android:text="Sex :"/>
-        <androidx.appcompat.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,15 +111,14 @@
             android:layout_weight="0.1"
             android:text="Current Weight (LBS) :"/>
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/current_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_weight="0.5"
-            android:hint="Enter current weight" />
+            android:layout_weight="0.5"/>
         </LinearLayout>
 
         <LinearLayout
@@ -139,16 +136,43 @@
             android:layout_weight="0.1"
             android:text="Target Weight (LBS) :"/>
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/target_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_weight="0.5"
-            android:hint="Enter target goal weight" />
+            android:layout_weight="0.5" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_weight="0.1"
+                android:text="Entry Date      :"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/entered_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -165,15 +189,14 @@
             android:layout_weight="0.1"
             android:text="Height (Feet) :"/>
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_weight="0.5"
-            android:hint="Enter height" />
+            android:layout_weight="0.5"/>
         </LinearLayout>
 
         <LinearLayout
@@ -190,15 +213,14 @@
             android:layout_marginStart="16dp"
             android:layout_weight="0.1"
             android:text="Email :"/>
-        <androidx.appcompat.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_weight="0.5"
-            android:hint="Enter email address" />
+            android:layout_weight="0.5" />
 
         </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton

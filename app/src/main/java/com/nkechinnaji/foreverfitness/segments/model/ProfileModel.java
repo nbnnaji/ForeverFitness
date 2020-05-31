@@ -1,4 +1,4 @@
-package com.nkechinnaji.foreverfitness.segments.profile.model;
+package com.nkechinnaji.foreverfitness.segments.model;
 
 /**
  * Created by Nkechi Nnaji on 4/19/20.
@@ -15,12 +15,13 @@ public class ProfileModel {
     String targetGoalWeight;
     String height;
     String email;
+    String entryDate;
 
 
 
     public ProfileModel(){}
 
-    public ProfileModel( String username, String dateOfBirth, String gender, String currentWeight, String targetGoalWeight, String height, String email) {
+    public ProfileModel( String username, String dateOfBirth, String gender, String currentWeight, String targetGoalWeight, String height, String email, String entryDate) {
 
         this.username = username;
         this.dateOfBirth = dateOfBirth;
@@ -29,6 +30,7 @@ public class ProfileModel {
         this.targetGoalWeight = targetGoalWeight;
         this.height = height;
         this.email = email;
+        this.entryDate = entryDate;
     }
 
     public String getUsername() {
@@ -86,4 +88,14 @@ public class ProfileModel {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(String entryDate) {
+        this.entryDate = entryDate;
+    }
+
+
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -31,7 +31,7 @@
         android:orientation="vertical"
         android:layout_gravity="center">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -46,19 +46,15 @@
                 android:id="@+id/text_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="left"
+                android:layout_marginStart="5dp"
                 android:minEms="10"
+                android:onClick="SelectDate"
                 android:text="mm/dd/yyyy"
                 android:textStyle="bold"
                 android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*required:"
-                android:textColor="@android:color/holo_red_dark"/>
-
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -90,6 +86,7 @@
                 android:gravity="center"
                 android:maxLength="3"
                 android:textStyle="bold"
+                android:inputType="number"
                 android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
             <TextView
                 android:layout_width="wrap_content"
@@ -97,22 +94,47 @@
                 android:text="lbs"
                 android:gravity="center"
                 android:minEms="3" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/required"
-                android:textColor="@android:color/holo_red_dark"/>
 
         </LinearLayout>
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/take_picture_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/take_picture"
+                android:background="@color/primary"
+                android:onClick="takePictures"
+                android:contentDescription="@string/take_picture"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/entry_pic_iv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_profile"
+                android:contentDescription="Latest picture" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/add_weight_tile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -120,24 +142,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.287">
 
-        <TextView
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel_entries_btn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="@string/add_your_current_weight"
+            android:background="@android:color/transparent"
+            android:text="Cancel"
             android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Body2.Medium" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_add"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save_entries_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_add"
+            android:background="@android:color/transparent"
+            android:textColor="@color/primary"
+            android:onClick="saveAllEntries"
+            android:text="Save"
             android:textAppearance="@style/Fitness.TextAppearance.AppCompat.Subhead.Regular" />
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
