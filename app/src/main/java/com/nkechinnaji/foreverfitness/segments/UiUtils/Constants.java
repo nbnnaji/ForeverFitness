@@ -27,7 +27,7 @@ public class Constants {
     public class RequestCodes {
 
        public static final int  CAMERA_REQ_CODE = 1;
-       public static final int  PIC_PERMISSION_REQ_CODE = 2;
+       public static final int  CREATE_PROFILE_REQ_CODE = 2;
        public static final int  TAKE_PIC_REQ_CODE = 3;
        public static final int  WEIGHT_ENTRY_REQ_CODE = 4;
     }

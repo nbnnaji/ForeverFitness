@@ -15,6 +15,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import com.nkechinnaji.foreverfitness.R;
+import com.nkechinnaji.foreverfitness.segments.UiUtils.Constants;
 import com.nkechinnaji.foreverfitness.segments.model.ProfileModel;
 import com.nkechinnaji.foreverfitness.segments.storage.DatabaseHelper;
 
@@ -55,7 +56,7 @@ TextView username, dateOfBirth, sex, currentWeight,targetWeight, height, email ,
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), EditProfileActivity.class);
-                startActivityForResult(intent, 10);
+                startActivityForResult(intent, Constants.RequestCodes.CREATE_PROFILE_REQ_CODE);
             }
         });
 
@@ -79,7 +80,7 @@ TextView username, dateOfBirth, sex, currentWeight,targetWeight, height, email ,
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 10) {
+        if (requestCode == Constants.RequestCodes.CREATE_PROFILE_REQ_CODE) {
 
             //populate settings screen with database content
             DatabaseHelper mDatabaseHelper = new DatabaseHelper(getContext());
